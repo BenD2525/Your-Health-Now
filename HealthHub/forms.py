@@ -44,4 +44,29 @@ class RegistrationForm(UserCreationForm):
         )
         return user
 
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Username')
+    password = forms.CharField(label='Password')
+
+    # def validate_user(self):
+    #     username = self.cleaned_data['Username'].lower()
+    #     check_user = User.objects.filter(username=username)
+    #     if not check_user:
+    #         raise ValidationError("This username doesn't exist. Try again.")
+    #     return username
     
+    # def validate_password(self):
+    #     password = self.cleaned_data.get['Password']
+    #     check_password = User.objects.filter(password=password)
+    #     if not check_password:
+    #         raise ValidationError("Incorrect password, please try again.")
+    #     return password
+    
+    # def save_user(self):
+    #     user = User.objects.check()(
+    #         self.cleaned_data['username'],
+    #         self.cleaned_data['email'],
+    #         self.cleaned_data['password2']
+    #     )
+    #     return user
