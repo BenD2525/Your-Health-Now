@@ -9,7 +9,7 @@ def home(request):
 
 
 def my_health(request):
-    return render(request, 'HealthHub/templates/MyHealth.html')
+    return render(request, 'MyHealth.html')
 
 
 def signup(request):

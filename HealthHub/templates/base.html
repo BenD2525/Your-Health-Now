@@ -34,14 +34,19 @@
                         </button>
                         <div class="collapse navbar-collapse" id="n_bar">
                             <ul class="nav navbar-nav ms-auto">
-                                <li class="nav-item"><a class="nav-link text-white" href="{% url 'HealthHub:home' %}"><strong>Home</strong></a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="{% url 'HealthHub:home' %}"><strong>Home</strong></a></li>
                                 {% if user.is_authenticated %}
-                                <li class="nav-item"><a class="nav-link text-white" href="{% url 'HealthHub:MyHealth' %}"><strong>My Health</strong></a></li>
-                                <li class="nav-item"><a class="nav-link text-white" href="{% url 'account_logout' %}"><strong>Logout</strong></a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="{% url 'HealthHub:MyHealth' %}"><strong>My Health</strong></a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="{% url 'account_logout' %}"><strong>Logout</strong></a></li>
                                 {% else %}
-                                <li class="nav-item"><a class="nav-link text-white" href="{% url 'account_login' %}"><strong>Login</strong></a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="{% url 'account_login' %}"><strong>Login</strong></a></li>
                                 {% endif %}
-                                <li class="nav-item"><a class="nav-link text-white" href="{% url 'account_signup' %}"><strong>Signup</strong></a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="{% url 'account_signup' %}"><strong>Signup</strong></a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,10 +55,16 @@
         </div>
     </div>
 
+    <div class="container-fluid text-center">
+        <div class="row justify-content-center">
+            <div class="col-sm-8">
+                {% block content %}
 
-    {% block content %}
+                {% endblock content %}
 
-    {% endblock content %}
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
