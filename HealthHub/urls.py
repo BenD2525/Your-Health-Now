@@ -10,7 +10,7 @@ urlpatterns = [
     # path('signup/', views.signup, name='signup'),
     # path('login/', views.login, name='login'),
     # path('logout/', views.logout, name='logout'),
-    path('MyHealth/', views.my_health, name='MyHealth'),
+    path('MyHealth/', views.MyHealth.as_view(), name='MyHealth'),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
     # path('signup/success', views.success_view, name='success'),
 ]
