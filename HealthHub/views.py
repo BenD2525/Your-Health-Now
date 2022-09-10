@@ -39,6 +39,8 @@ class MyHealth(View):
             'user': stats.user,
             'weight': stats.weight,
             'date': stats.date,
+            'run time': stats.run_time,
+            'run distance': stats.run_distance
         }
         return render(request, 'MyHealth.html', context)
 

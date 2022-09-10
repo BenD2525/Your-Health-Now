@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{%load crispy_forms_tags %} 
 
 {% block content %}
 <div class="container-fluid">
@@ -11,9 +12,9 @@
 </div>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-auto text-center p-3 form-group">
+        <div class="col-auto text-center p-3">
             <form method="post" style="margin-top: 1.3em;">
-                {{ update_form.as_table }}
+                {{ update_form | crispy }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-signup btn-lg">Submit</button>
             </form>
@@ -22,7 +23,7 @@
     <div class="row justify-content-center">
         <div class="col-auto text-center p-3">
             <table></table>
-            <p class="text-center"> {{ stats.user }} | {{ stats.weight }} | {{ stats.date }} </p>
+            <p class="text-center"> {{ stats.user }} | {{ stats.weight }} | {{ stats.date }} | {{ stats.five_k_time }} </p>
         </div>
     </div>
 </div>
