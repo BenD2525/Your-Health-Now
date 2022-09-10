@@ -27,6 +27,20 @@ class MyHealth(View):
             'date': stats.date,
         }
         return render(request, 'MyHealth.html', context)
+    
+    def post(self, request, *args, **kwargs):
+
+        stats = Stats
+        update_form = StatUpdateForm(data=request.POST)
+             
+        context = {
+            'stats': stats,
+            "update_form": update_form,
+            'user': stats.user,
+            'weight': stats.weight,
+            'date': stats.date,
+        }
+        return render(request, 'MyHealth.html', context)
 
 
 # def signup(request):

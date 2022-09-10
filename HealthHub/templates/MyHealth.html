@@ -10,15 +10,18 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="col-auto text-center p-3 form-group">
-        <form method="post" style="margin-top: 1.3em;">
-            {{ update_form }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
+    <div class="row justify-content-center">
+        <div class="col-auto text-center p-3 form-group">
+            <form method="post" style="margin-top: 1.3em;">
+                {{ update_form.as_table }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+        </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-auto text-center p-3">
+            <table></table>
             <p class="text-center"> {{ stats.user }} | {{ stats.weight }} | {{ stats.date }} </p>
         </div>
     </div>

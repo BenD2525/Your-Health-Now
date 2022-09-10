@@ -46,9 +46,9 @@ from .models import Stats
 #         return user
 
 
-class StatUpdateForm(forms.Form):
+class StatUpdateForm(forms.ModelForm):
     class Meta:
         model = Stats
-        fields = ('user', 'weight', 'date')
+        fields = ('user', 'weight')
     
     
