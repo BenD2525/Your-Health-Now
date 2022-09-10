@@ -38,7 +38,7 @@
                                         href="{% url 'HealthHub:home' %}"><strong>Home</strong></a></li>
                                 {% if user.is_authenticated %}
                                 <li class="nav-item"><a class="nav-link text-white"
-                                        href="{% url 'HealthHub:MyHealth' %}"><strong>My Health</strong></a></li>
+                                        href="{% url 'HealthHub:health_hub' %}"><strong>My Health</strong></a></li>
                                 <li class="nav-item"><a class="nav-link text-white"
                                         href="{% url 'account_logout' %}"><strong>Logout</strong></a></li>
                                 {% else %}

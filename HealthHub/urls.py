@@ -7,10 +7,9 @@ app_name = 'HealthHub'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    # path('signup/', views.signup, name='signup'),
-    # path('login/', views.login, name='login'),
-    # path('logout/', views.logout, name='logout'),
-    path('MyHealth/', views.MyHealth.as_view(), name='MyHealth'),
+    path('MyHealth/', views.health_hub, name='health_hub'),
+    path('MyHealth/update', views.UpdateHealth.as_view(), name='health_hub_update'),
+    path('MyHealth/history', views.HealthHistory, name='health_hub_history'),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
-    # path('signup/success', views.success_view, name='success'),
+
 ]

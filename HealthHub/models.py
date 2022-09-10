@@ -7,7 +7,7 @@ class Stats(models.Model):
     date = models.DateField(auto_now=True)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
     run_distance = models.IntegerField(default=5)
-    run_time = models.TimeField() 
+    run_time = models.TimeField()
 
     class Meta:
         db_table = 'health_stats'

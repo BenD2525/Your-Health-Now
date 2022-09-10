@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h1>My Health Summary</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+
+    </div>
+    <div class="row justify-content-center">
+        <a href="{% url 'HealthHub:health_hub_history' %}"><button class="btn btn-primary btn-lg">View my Health History</button></a>
+        <a href="{% url 'HealthHub:health_hub_update' %}"><button class="btn btn-primary btn-lg">Update my Stats</button></a>
+    </div>
+</div>
+{% endblock content %}
