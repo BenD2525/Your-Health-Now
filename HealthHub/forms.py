@@ -51,5 +51,5 @@ class StatUpdateForm(forms.ModelForm):
     class Meta:
         model = HealthStats
         fields = ('user', 'weight', 'run_distance', 'run_time')
-        labels = {'user': 'Username', 'weight': 'Weight', 'run_distance': 'Run distance (km)', 'run_time': 'Run time (HH:MM:SS)'}
+        labels = {'user': 'Username', 'weight': 'Weight (lbs)', 'run_distance': 'Run distance (km)', 'run_time': 'Run time (HH:MM:SS)'}
     

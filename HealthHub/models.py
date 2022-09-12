@@ -14,4 +14,4 @@ class HealthStats(models.Model):
         ordering = ['-date']
 
     def __str__(self):
-        return f"You currently weigh {self.weight}, {self.user}"
+        return f"{self.user}|{self.date}"
