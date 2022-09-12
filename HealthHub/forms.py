@@ -1,7 +1,8 @@
 from django import forms
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
-from .models import Stats
+from .models import HealthStats
+from django.forms import ModelForm
 # from django.core.exceptions import ValidationError
 
 
@@ -48,7 +49,7 @@ from .models import Stats
 
 class StatUpdateForm(forms.ModelForm):
     class Meta:
-        model = Stats
+        model = HealthStats
         fields = ('user', 'weight', 'run_distance', 'run_time')
-    
+        labels = {'user': 'Username', 'weight': 'Weight', 'run_distance': 'Run distance (km)', 'run_time': 'Run time (HH:MM:SS)'}
     

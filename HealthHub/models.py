@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Stats(models.Model):
+class HealthStats(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(auto_now=True)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
