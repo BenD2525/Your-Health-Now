@@ -10,44 +10,32 @@ def home(request):
 
 
 def health_hub(request):
-    model = HealthStats
-    
-    def get_queryset(self):
-        user = self.user
-        latest = HealthStats.objects.filter(user=user).latest('date')
-        return latest
-
+    latest = HealthStats.objects.filter(user=request.user).latest('date')
     context = {
-            "user": model.user,
-            "weight": model.weight,
-            "date": model.date,
-            "run_distance": model.run_distance,
-            "run_time": model.run_time,
-            "stats": HealthStats,
-            "latest": get_queryset(model)
+            "user": latest.user,
+            "weight": latest.weight,
+            "date": latest.date,
+            "run_distance": latest.run_distance,
+            "run_time": latest.run_time,
         }
     return render(request, 'health_hub.html', context)
 
 
-class HealthHistory(generic.TemplateView):
-    model = HealthStats
-    template_name = 'health_hub_history.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # user = User()
-        context['stats'] = HealthStats.objects.all()
-        return context
-    # queryset = HealthStats.objects.all()
-    # context = {
-    #         "user": model.user,
-    #         "weight": model.weight,
-    #         "date": model.date,
-    #         "run_distance": model.run_distance,
-    #         "run_time": model.run_time,
-    #         "stats": HealthStats
-    #     }
-   
+def health_history(request):
+    serialized_stats = []
+    for stats in HealthStats.objects.filter(user=request.user):
+        serialized_stats.append({
+            "user": stats.user,
+            "weight": stats.weight,
+            "date": stats.date,
+            "run_distance": stats.run_distance,
+            "run_time": stats.run_time,
+        })
+    context = {
+        "stats": serialized_stats
+        }
+    return render(request, 'health_hub_history.html', context)
+ 
 
 class UpdateHealth(View):
     

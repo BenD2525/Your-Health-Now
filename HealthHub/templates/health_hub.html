@@ -12,16 +12,16 @@
 </div>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <h3>Welcome {{ latest.user }}!</h3>
+        <h3>Welcome {{ user }}!</h3>
         <p>Please see below for your latest stats:</p>
         <table class="table table-bordered">
             <tr>
-                <td>Weight: {{ latest.weight }}</td>
-                <td>Run Distance: {{ latest.run_distance }} km</td>
+                <td>Weight(lbs): {{ weight }}</td>
+                <td>Run Distance: {{ run_distance }} km</td>
             </tr>
             <tr>
-                <td>Run Time: {{ latest.run_time }}</td>
-                <td>Last Updated: {{ latest.date }}</td>
+                <td>Run Time: {{ run_time }}</td>
+                <td>Last Updated: {{ date }}</td>
             </tr>
         </table>
 
