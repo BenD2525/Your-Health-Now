@@ -12,11 +12,26 @@
 </div>
 <div class="container-fluid">
     <div class="row justify-content-center">
+        <h3>Welcome {{ latest.user }}!</h3>
+        <p>Please see below for your latest stats:</p>
+        <table class="table table-bordered">
+            <tr>
+                <td>Weight: {{ latest.weight }}</td>
+                <td>Run Distance: {{ latest.run_distance }} km</td>
+            </tr>
+            <tr>
+                <td>Run Time: {{ latest.run_time }}</td>
+                <td>Last Updated: {{ latest.date }}</td>
+            </tr>
+        </table>
+
 
     </div>
-    <div class="row justify-content-center">
-        <a href="{% url 'HealthHub:health_hub_history' %}"><button class="btn btn-primary btn-lg">View my Health History</button></a>
-        <a href="{% url 'HealthHub:health_hub_update' %}"><button class="btn btn-primary btn-lg">Update my Stats</button></a>
+    <div class="row justify-content-center d-grid gap-3">
+        <a href="{% url 'HealthHub:health_hub_history' %}"><button class="btn btn-primary btn-lg">View my Health
+                History</button></a>
+        <a href="{% url 'HealthHub:health_hub_update' %}"><button class="btn btn-primary btn-lg">Update my
+                Stats</button></a>
     </div>
 </div>
 {% endblock content %}

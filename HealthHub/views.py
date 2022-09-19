@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.views import View, generic
+# from django.contrib.auth.models import User
 from .models import HealthStats
 from .forms import StatUpdateForm
-from django.views import View
 
 
 def home(request):
@@ -9,12 +10,44 @@ def home(request):
 
 
 def health_hub(request):
-    return render(request, 'health_hub.html')
+    model = HealthStats
+    
+    def get_queryset(self):
+        user = self.user
+        latest = HealthStats.objects.filter(user=user).latest('date')
+        return latest
+
+    context = {
+            "user": model.user,
+            "weight": model.weight,
+            "date": model.date,
+            "run_distance": model.run_distance,
+            "run_time": model.run_time,
+            "stats": HealthStats,
+            "latest": get_queryset(model)
+        }
+    return render(request, 'health_hub.html', context)
 
 
-def HealthHistory(request):
-    return render(request, 'health_hub_history.html')
+class HealthHistory(generic.TemplateView):
+    model = HealthStats
+    template_name = 'health_hub_history.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # user = User()
+        context['stats'] = HealthStats.objects.all()
+        return context
+    # queryset = HealthStats.objects.all()
+    # context = {
+    #         "user": model.user,
+    #         "weight": model.weight,
+    #         "date": model.date,
+    #         "run_distance": model.run_distance,
+    #         "run_time": model.run_time,
+    #         "stats": HealthStats
+    #     }
+   
 
 class UpdateHealth(View):
     
