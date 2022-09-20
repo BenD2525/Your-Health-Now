@@ -19,7 +19,8 @@
                     <td>Date:</td>
                     <td>Run Distance (km):</td>
                     <td>Run Time (HH:MM:SS):</td>
-                    <td>Action</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </tr>
                 {% for item in stats %}
                 <tr>
@@ -29,6 +30,13 @@
                     <td>{{ item.run_distance }}</td>
                     <td>{{ item.run_time }}</td>
                     <!-- Button trigger modal -->
+                    <td>
+                        <a href="edit/{{ item.id }}"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            Edit
+                        </button>
+                    </a>
+                    </td>
                     <td>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
