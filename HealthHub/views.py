@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View, generic
-# from django.contrib.auth.models import User
 from .models import HealthStats
 from .forms import StatUpdateForm
 
@@ -30,6 +29,7 @@ def health_history(request):
             "date": stats.date,
             "run_distance": stats.run_distance,
             "run_time": stats.run_time,
+            "id": stats.id,
         })
     context = {
         "stats": serialized_stats
@@ -72,3 +72,9 @@ class UpdateHealth(View):
             update_form.save()
             
         return render(request, 'health_hub_update.html', context)
+
+
+def delete_entry(request, item_id):
+    entry = get_object_or_404(HealthStats, id=item_id)
+    entry.delete()
+    return redirect("HealthHub:health_hub_history")
