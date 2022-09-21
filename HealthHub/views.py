@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View, generic
+from django.views.generic import UpdateView
 from .models import HealthStats
 from .forms import StatUpdateForm
 
@@ -78,3 +79,9 @@ def delete_entry(request, item_id):
     entry = get_object_or_404(HealthStats, id=item_id)
     entry.delete()
     return redirect("HealthHub:health_hub_history")
+
+
+class EditHealth(UpdateView):
+    model = HealthStats
+    template_name = 'health_hub_edit.html'
+    fields = ['weight', 'run_distance', 'run_time']

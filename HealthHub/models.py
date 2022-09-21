@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class HealthStats(models.Model):
@@ -12,6 +13,9 @@ class HealthStats(models.Model):
     class Meta:
         db_table = 'health_stats'
         ordering = ['-date']
+
+    def get_absolute_url(self):
+        return reverse('HealthHub:health_hub_history')
 
     def __str__(self):
         return f"{self.user} | {self.date}"
