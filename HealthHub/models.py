@@ -5,10 +5,10 @@ from django.urls import reverse
 
 class HealthStats(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    date = models.DateField(auto_now=True)
+    date = models.DateField(auto_now_add=True)
     weight = models.DecimalField(max_digits=5, decimal_places=2)
-    run_distance = models.IntegerField(default=5)
-    run_time = models.TimeField()
+    run_distance = models.DecimalField(max_digits=5, decimal_places=2)
+    run_time = models.DurationField()
 
     class Meta:
         db_table = 'health_stats'

@@ -70,7 +70,9 @@ class UpdateHealth(View):
         }
 
         if update_form.is_valid():
-            update_form.save()
+            obj = update_form.save(commit=False)
+            obj.user = request.user
+            obj.save()
             
         return render(request, 'health_hub_update.html', context)
 
