@@ -74,7 +74,7 @@ class UpdateHealth(View):
             obj.user = request.user
             obj.save()
             
-        return render(request, 'health_hub_update.html', context)
+        return redirect("HealthHub:health_hub")
 
 
 def delete_entry(request, item_id):
