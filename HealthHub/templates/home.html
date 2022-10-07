@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 text-center py-4 my-4 bg-info bg-gradient rounded-pill text-white">
-            <a href="{% url 'HealthHub:health_hub_article' %}">{{ article.title }}</a>
+            <a href="article/{{ article.id }}">{{ article.title }}</a>
             <p>{{ article.topic }}</p>
             <img class="card-img-top" src=" {{ article.featured_image }}">
         </div>

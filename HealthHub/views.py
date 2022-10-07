@@ -12,7 +12,9 @@ def home(request):
         serialized_articles.append({
             "title": article.title,
             "topic": article.topic,
-        })
+            "featured_image": article.featured_image,
+            "id": article.id,
+        })     
     context = {
         "articles": serialized_articles
         }
@@ -111,18 +113,17 @@ class EditHealth(UpdateView):
     fields = ['weight', 'run_distance', 'run_time']
 
 
-class ArticleDetail(View):
-
-    def get(self, request, *args, **kwargs):
-        article = Article
-        context = {
-                "title": article.title,
-                "topic": article.topic,
-                "featured_image": article.featured_image,
-                "content": article.content,
-            }
-        return render(
-            request,
-            'health_hub_article.html',
-            context
-        )
+def article_detail(request):
+    serialized_articles = []
+    articles = Article.objects.all()
+    for article in articles:
+        serialized_articles.append({
+            "title": article.title,
+            "topic": article.topic,
+            "featured_image": article.featured_image,
+            "content": article.content,
+        })     
+    context = {
+        "articles": serialized_articles
+        }
+    return render(request, 'home.html', context)
