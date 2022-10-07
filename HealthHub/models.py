@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 
 class HealthStats(models.Model):
@@ -19,3 +20,13 @@ class HealthStats(models.Model):
 
     def __str__(self):
         return f"{self.user} | {self.date}"
+
+
+class Article(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    topic = models.CharField(max_length=200)
+    featured_image = CloudinaryField('image', default='placeholder')
+    content = models.TextField()
+
+    def __str__(self):
+        return f"{self.title}"
