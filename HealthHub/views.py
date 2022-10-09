@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View, generic
-from django.views.generic import UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import UpdateView, DeleteView
 from .models import HealthStats, Article
 from .forms import StatUpdateForm
 
@@ -100,11 +101,10 @@ class UpdateHealth(View):
         return redirect("HealthHub:health_hub")
 
 
-def delete_entry(request, item_id):
-    entry = get_object_or_404(HealthStats, id=item_id)
-    print(entry)
-    # entry.delete()
-    return redirect("HealthHub:health_hub_history")
+class DeleteEntry(DeleteView):
+    model = HealthStats
+    template_name = 'health_hub_delete.html'
+    success_url = reverse_lazy('HealthHub:health_hub_history')
 
 
 class EditHealth(UpdateView):
