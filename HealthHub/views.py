@@ -62,6 +62,10 @@ def health_history(request):
     return render(request, 'health_hub_history.html', context)
  
 
+def health_hub_tracker(request):
+    return render(request, "health_hub_tracker.html")
+
+
 class UpdateHealth(View):
     
     def get(self, request, *args, **kwargs):
