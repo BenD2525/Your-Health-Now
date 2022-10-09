@@ -113,17 +113,12 @@ class EditHealth(UpdateView):
     fields = ['weight', 'run_distance', 'run_time']
 
 
-def article_detail(request):
-    serialized_articles = []
-    articles = Article.objects.all()
-    for article in articles:
-        serialized_articles.append({
+def article_detail(request, item_id):
+    article = Article.objects.get(id=item_id)
+    context = {
             "title": article.title,
             "topic": article.topic,
             "featured_image": article.featured_image,
             "content": article.content,
-        })     
-    context = {
-        "articles": serialized_articles
-        }
-    return render(request, 'home.html', context)
+        }   
+    return render(request, 'health_hub_article.html', context)

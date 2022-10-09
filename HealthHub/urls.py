@@ -13,5 +13,5 @@ urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url("favicon.ico"))),
     path('MyHealth/delete/<item_id>', views.delete_entry, name='health_hub_delete'),
     path('MyHealth/edit/<int:pk>', views.EditHealth.as_view(), name='health_hub_edit'),
-    path('MyHealth/article/<int:pk>', views.article_detail, name='health_hub_article'),
+    path('article/<item_id>', views.article_detail, name='health_hub_article'),
 ]
