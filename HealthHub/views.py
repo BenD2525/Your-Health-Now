@@ -63,7 +63,19 @@ def health_history(request):
  
 
 def health_hub_tracker(request):
-    return render(request, "health_hub_tracker.html")
+    serialized_stats = []
+    for stats in HealthStats.objects.filter(user=request.user):
+        serialized_stats.append({
+            "weight": stats.weight,
+            "run_distance": stats.run_distance,
+            "run_time": stats.run_time,
+            "date": stats.date,
+        })
+    context = {
+        "stats": serialized_stats
+        }
+    print(serialized_stats)
+    return render(request, "health_hub_tracker.html", context)
 
 
 class UpdateHealth(View):
