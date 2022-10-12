@@ -47,7 +47,9 @@
             </table>
         </div>
     </div>
+    {% if stats %}
     <a href="{% url 'HealthHub:health_hub_tracker' %}" class="btn btn-primary">Tracker</a>
+    {% endif %}
     <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
 </div>
 {% endblock content %}

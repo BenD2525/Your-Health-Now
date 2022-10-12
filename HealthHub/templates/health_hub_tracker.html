@@ -5,14 +5,14 @@
 <h1>Weight Tracker</h1>
 <canvas id="myChart" width="400" height="200"></canvas>
 <script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Weight'],
+        labels: [{%for stat in date%}{{stat}},{%endfor%}],
         datasets: [{
             label: 'Weight (lbs)',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [{%for stat in weight%}{{stat}},{%endfor%}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -34,8 +34,18 @@
     },
     options: {
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    Text: 'Date'
+                }
+            },
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    Text: 'Weight (lbs)'
+                }
             }
         }
     }

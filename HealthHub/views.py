@@ -1,9 +1,11 @@
+import datetime
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View, generic
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView
 from .models import HealthStats, Article
 from .forms import StatUpdateForm
+
 
 
 def home(request):
@@ -63,18 +65,22 @@ def health_history(request):
  
 
 def health_hub_tracker(request):
-    serialized_stats = []
+    serialized_weight = []
+    serialized_date = []
     for stats in HealthStats.objects.filter(user=request.user):
-        serialized_stats.append({
-            "weight": stats.weight,
-            "run_distance": stats.run_distance,
-            "run_time": stats.run_time,
-            "date": stats.date,
-        })
+        serialized_weight.append(int(
+            stats.weight,
+        ))
+        date_only = stats.date.date()
+        serialized_date.append(str(
+            date_only
+        ))
+    print(serialized_weight)
+    print(serialized_date)
     context = {
-        "stats": serialized_stats
+        "weight": serialized_weight,
+        "date": serialized_date
         }
-    print(serialized_stats)
     return render(request, "health_hub_tracker.html", context)
 
 
@@ -138,3 +144,23 @@ def article_detail(request, item_id):
             "content": article.content,
         }   
     return render(request, 'health_hub_article.html', context)
+
+
+# class ChartData(APIView):
+#     authentication_classes = []
+#     permission_classes = []
+
+#     def get(self, request, format=None):
+#         labels = "weight (lbs)"
+#         chartLabel = "weight (lbs)"
+#         serialized_stats = []
+#         for stats in HealthStats.objects.filter(user=request.user.id):
+#             serialized_stats.append({
+#                 "weight": stats.weight,
+#                 })
+#         data = {
+#                     "labels": labels,
+#                     "chartLabel": chartLabel,
+#                     "chartdata": serialized_stats,
+#             }
+#         return Response(data)
