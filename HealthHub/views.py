@@ -75,8 +75,8 @@ def health_hub_tracker(request):
         serialized_date.append(str(
             date_only
         ))
-    print(serialized_weight)
-    print(serialized_date)
+    serialized_weight.reverse()
+    serialized_date.reverse()
     context = {
         "weight": serialized_weight,
         "date": serialized_date
@@ -145,22 +145,3 @@ def article_detail(request, item_id):
         }   
     return render(request, 'health_hub_article.html', context)
 
-
-# class ChartData(APIView):
-#     authentication_classes = []
-#     permission_classes = []
-
-#     def get(self, request, format=None):
-#         labels = "weight (lbs)"
-#         chartLabel = "weight (lbs)"
-#         serialized_stats = []
-#         for stats in HealthStats.objects.filter(user=request.user.id):
-#             serialized_stats.append({
-#                 "weight": stats.weight,
-#                 })
-#         data = {
-#                     "labels": labels,
-#                     "chartLabel": chartLabel,
-#                     "chartdata": serialized_stats,
-#             }
-#         return Response(data)

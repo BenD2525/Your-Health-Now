@@ -9,7 +9,7 @@ const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [{%for stat in date%}{{stat}},{%endfor%}],
+        labels: [{%for stat in date%}'{{stat}}',{%endfor%}],
         datasets: [{
             label: 'Weight (lbs)',
             data: [{%for stat in weight%}{{stat}},{%endfor%}],
@@ -36,15 +36,17 @@ const myChart = new Chart(ctx, {
         scales: {
             x: {
                 title: {
+                    text: 'Date',
                     display: true,
-                    Text: 'Date'
+                    padding: 10
                 }
             },
             y: {
                 beginAtZero: true,
                 title: {
+                    text: 'Weight (lbs)',
                     display: true,
-                    Text: 'Weight (lbs)'
+                    padding: 10
                 }
             }
         }
