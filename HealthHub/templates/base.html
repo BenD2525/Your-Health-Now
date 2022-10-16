@@ -28,9 +28,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
         integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Chart.js date-fns adapter -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js">
-    </script>
     <title>Your Health Now</title>
 </head>
 
@@ -71,6 +68,19 @@
             </div>
         </div>
     </div>
+    <!-- Message -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 py-4">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <!-- Main Content -->
     <div class="container-fluid text-center">
         <div class="row justify-content-center">
@@ -87,6 +97,14 @@
         <a href="https://github.com/BenD2525" target="_blank" rel="noopener" aria-label="GitHub" class="text-white "><i
                 class="fa-brands fa-github"></i></a>
     </footer>
+    <!-- Messages timeout script -->
+    <script>
+        setTimeout(function() {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">

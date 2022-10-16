@@ -2,27 +2,28 @@
 {% load static %}
 
 {% block content %}
+<!-- Jumbotron -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 text-center py-4 my-4 bg-info bg-gradient rounded-pill text-white">
-            <h1>Welcome to Your Health Now, where you can log and track your weight and run stats.</h1>
-            <p class="text-white"> Read below for some helpful articles about the benefits of exercise.</p>
+        <div class="p-5 mb-4 bg-info rounded-3"">
+            <h1 class=" display-5 fw-bold">Welcome to Your Health Now</h1>
+            <p class="text-white fs-4"> Read below for some helpful articles about the benefits of exercise, or sign up and track your weight and run stats!</p>
         </div>
     </div>
 </div>
-
+<!-- Article section -->
 {% for article in articles %}
-<div class="container-fluid">
-    <div class="row card">
-        <div class="col-sm-12 text-center py-4 my-4 card-body">
-            <h3 class="card-title">{{ article.title }}</h3>
-            <p>{{ article.topic }}</p>
-            <img class="card-img-top" src=" {{ article.featured_image.url }}">
-            <a href="article/{{ article.id }}" class="btn btn-primary my-4">Read More</a>
-        </div>
+<hr class="featurette-divider">
+<div class="row featurette">
+    <div class="col-md-7">
+        <h2 class="featurette-heading">{{ article.title }}</h2>
+        <p class="lead">{{ article.topic }}</p>
+        <a href="article/{{ article.id }}" class="btn btn-primary my-4">Read More</a>
+    </div>
+    <div class="col-md-5">
+        <img class="card-img-top" src=" {{ article.featured_image.url }}">
     </div>
 </div>
 {% endfor %}
-    
 
 {% endblock content %}
