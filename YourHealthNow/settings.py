@@ -84,7 +84,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'yourhealthnow2022@gmail.com'
-EMAIL_HOST_PASSWORD = 'TalkSport2022!'
+EMAIL_HOST_PASSWORD = 'TalkSport2022'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
