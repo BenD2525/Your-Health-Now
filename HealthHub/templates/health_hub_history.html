@@ -3,53 +3,55 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <h1>My Health History</h1>
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <h1>My Health History</h1>
+            </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-auto text-center p-3">
-            <table class="table table-striped table-hover table-bordered">
-                <tr>
-                    <td>User:</td>
-                    <td>Weight (lbs):</td>
-                    <td>Date:</td>
-                    <td>Run Distance (km):</td>
-                    <td>Run Time (HH:MM:SS):</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
-                </tr>
-                {% for item in stats %}
-                <tr>
-                    <td>{{ item.user }}</td>
-                    <td>{{ item.weight }} </td>
-                    <td>{{ item.date }}</td>
-                    <td>{{ item.run_distance }}</td>
-                    <td>{{ item.run_time }}</td>
-                    <!-- Button trigger modal -->
-                    <td>
-                        <a href="edit/{{ item.id }}"><button type="button" class="btn btn-primary">
-                                Edit
-                            </button>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="delete/{{ item.id }}"><button type="button" class="btn btn-danger">
-                                Delete
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center p-3 table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th scope="col">User:</th>
+                        <th scope="col">Weight (lbs):</th>
+                        <th scope="col">Date:</th>
+                        <th scope="col">Run Distance (km):</th>
+                        <th scope="col">Run Time (HH:MM:SS):</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    {% for item in stats %}
+                    <tr>
+                        <td>{{ item.user }}</td>
+                        <td>{{ item.weight }} </td>
+                        <td class="col-2">{{ item.date }}</td>
+                        <td>{{ item.run_distance }}</td>
+                        <td>{{ item.run_time }}</td>
+                        <!-- Button trigger modal -->
+                        <td>
+                            <a href="edit/{{ item.id }}"><button type="button" class="btn btn-primary">
+                                    Edit
+                                </button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="delete/{{ item.id }}"><button type="button" class="btn btn-danger">
+                                    Delete
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
+        {% if stats %}
+        <a href="{% url 'HealthHub:health_hub_tracker' %}" class="btn btn-primary">Tracker</a>
+        {% endif %}
+        <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
     </div>
-    {% if stats %}
-    <a href="{% url 'HealthHub:health_hub_tracker' %}" class="btn btn-primary">Tracker</a>
-    {% endif %}
-    <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
 </div>
 {% endblock content %}

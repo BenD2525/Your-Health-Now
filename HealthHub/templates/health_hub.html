@@ -10,8 +10,9 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container mb-5">
     <div class="row justify-content-center">
+        <div class="col-sm-12 text-center">
         <h3>Welcome {{ user }}!</h3>
         <p>Please see below for your latest stats:</p>
         <table class="table table-bordered">
@@ -24,15 +25,14 @@
                 <td>Last Updated: {{ date }}</td>
             </tr>
         </table>
-
-
+    </div>
     </div>
     <div class="row justify-content-center d-grid gap-3">
         <a href="{% url 'HealthHub:health_hub_history' %}"><button class="btn btn-primary btn-lg">View my Health
                 History</button></a>
-        <a href="{% url 'HealthHub:health_hub_update' %}"><button class="btn btn-primary btn-lg">Update my
+        <a href="{% url 'HealthHub:health_hub_update' %}"><button class="btn btn-success btn-lg">Update my
                 Stats</button></a>
-        <a href="{% url 'HealthHub:home' %}"><button class="btn btn-primary btn-lg">
+        <a href="{% url 'HealthHub:home' %}"><button class="btn btn-secondary btn-lg">
                 Home</button></a>
     </div>
 </div>
