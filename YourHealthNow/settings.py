@@ -74,10 +74,17 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'yourhealthnow2022@gmail.com'
+EMAIL_HOST_PASSWORD = 'TalkSport2022!'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
