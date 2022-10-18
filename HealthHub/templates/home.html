@@ -6,16 +6,15 @@
 <div class="container mb-5">
 <div class="container-fluid">
     <div class="row">
-        <div class="p-5 mb-4 bg-info rounded-3"">
-            <h1 class=" display-5 fw-bold">Welcome to Your Health Now</h1>
-            <p class="text-white fs-4"> Read below for some helpful articles about the benefits of exercise, or sign up and track your weight and run stats!</p>
-        </div>
+        <img src="static/Unsplash- Brian Erickson - Mountain Running.jpg" class="img-fluid fade-in" alt="Man running along a mountain pass">
+            <h1 class="display-5 fw-bold">Welcome to Your Health Now</h1>
+            <p class="fs-4"> Read below for some helpful articles about the benefits of exercise, or sign up and track your weight and run stats!</p>
     </div>
 </div>
 <!-- Article section -->
 {% for article in articles %}
 <hr class="featurette-divider">
-<div class="row featurette">
+<div class="row featurette bg-white">
     <div class="col-md-7">
         <h2 class="featurette-heading">{{ article.title }}</h2>
         <p class="lead">{{ article.topic }}</p>
@@ -26,5 +25,6 @@
     </div>
 </div>
 {% endfor %}
+</div>
 </div>
 {% endblock content %}

@@ -83,19 +83,21 @@
     </div>
     <!-- Main Content -->
     <div class="container text-center">
-                {% block content %}
+        {% block content %}
 
-                {% endblock content %}
+        {% endblock content %}
     </div>
     <!-- Footer -->
-    <footer class="container-fluid fixed-bottom bg-secondary mt-4">
-        <a href="#" class="btn btn-secondary btn-sm float-end">Back to top</a>
-        <a href="https://github.com/BenD2525" target="_blank" rel="noopener" aria-label="GitHub" class="text-white "><i
-                class="fa-brands fa-github"></i></a>
-    </footer>
+    <div class="container-fluid">
+        <footer class="container-fluid fixed-bottom bg-secondary mt-4 d-flex justify-content-between">
+            <a href="https://github.com/BenD2525" target="_blank" rel="noopener" aria-label="GitHub"
+                class="text-white">Ben Dawson 2022 <i class="fa-brands fa-github"></i></a>
+            <a href="#" class="btn btn-secondary btn-sm">Back to top</a>
+        </footer>
+    </div>
     <!-- Messages timeout script -->
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
             let messages = document.getElementById("msg");
             let alert = new bootstrap.Alert(messages);
             alert.close();

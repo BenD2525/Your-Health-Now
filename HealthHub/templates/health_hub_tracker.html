@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block content %}
+<div class="container mb-5">
 <h1>Weight Tracker</h1>
-<canvas id="myChart" width="400" height="200"></canvas>
+<canvas id="myChart" width="400" height="300" class="img-responsive"></canvas>
 <script>
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
@@ -55,5 +56,6 @@ const myChart = new Chart(ctx, {
 </script>
 <div class="container text-center mt-3">
     <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
+</div>
 </div>
 {% endblock content %}

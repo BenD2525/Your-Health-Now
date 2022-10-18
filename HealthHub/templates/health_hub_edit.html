@@ -16,12 +16,10 @@
             <form method="post" style="margin-top: 1.3em;">
                 {{ form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </form>
         </div>
     </div>
-    <div class="row justify-content-center">
-
-    </div>
+    <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
 </div>
 {% endblock content %}

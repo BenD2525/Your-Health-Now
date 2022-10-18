@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid mb-5">
     <div class="container">
         <div class="row">
             <div class="text-center">
@@ -49,7 +49,7 @@
             </div>
         </div>
         {% if stats %}
-        <a href="{% url 'HealthHub:health_hub_tracker' %}" class="btn btn-primary">Tracker</a>
+        <a href="{% url 'HealthHub:health_hub_tracker' %}" class="btn btn-primary">Weight Tracker</a>
         {% endif %}
         <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">Back</a>
     </div>
