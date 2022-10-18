@@ -2,9 +2,11 @@
 {% load static %}
 
 {% block content %}
+<!-- Weight Tracker Title -->
 <div class="container mb-5">
 <h1>Weight Tracker</h1>
 <canvas id="myChart" width="400" height="300" class="img-responsive"></canvas>
+<!-- Weight Tracker using chart.js -->
 <script>
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {

@@ -1,14 +1,14 @@
-import datetime
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import View, generic
+from django.shortcuts import render, redirect
+from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, DeleteView
 from .models import HealthStats, Article
 from .forms import StatUpdateForm
 
 
-
 def home(request):
+    '''View for the home page. 
+    Gathers and displays articles from Article model.'''
     serialized_articles = []
     articles = Article.objects.all()
     for article in articles:
@@ -25,6 +25,9 @@ def home(request):
 
 
 def health_hub(request):
+    '''View for the Health Hub page. 
+
+    Gathers and displays latest health stats from HealthStats model.'''
     user = request.user
     if HealthStats.objects.filter(user=user):
         latest = HealthStats.objects.filter(user=request.user).latest('date')
@@ -48,6 +51,9 @@ def health_hub(request):
 
 
 def health_history(request):
+    '''View for the Health Hub History page.
+
+    Gathers and displays all stats for current user from HealthStats model.'''
     serialized_stats = []
     for stats in HealthStats.objects.filter(user=request.user):
         serialized_stats.append({
@@ -65,6 +71,10 @@ def health_history(request):
  
 
 def health_hub_tracker(request):
+    '''View for the Weight Tracker page. 
+
+    Gathers and displays user's stats from HealthStats model
+    and displays them using chart.js.'''
     serialized_weight = []
     serialized_date = []
     for stats in HealthStats.objects.filter(user=request.user):
@@ -85,6 +95,9 @@ def health_hub_tracker(request):
 
 
 class UpdateHealth(View):
+    '''View for the Update Health page. 
+
+    Uses StatUpdateForm to allow the user to update their stats.'''
     
     def get(self, request, *args, **kwargs):
 
@@ -104,16 +117,6 @@ class UpdateHealth(View):
 
         stats = HealthStats
         update_form = StatUpdateForm(data=request.POST)
-             
-        # context = {
-        #     'stats': stats,
-        #     'update_form': update_form,
-        #     'user': stats.user,
-        #     'weight': stats.weight,
-        #     'date': stats.date,
-        #     'run time': stats.run_time,
-        #     'run distance': stats.run_distance
-        # }
 
         if update_form.is_valid():
             obj = update_form.save(commit=False)
@@ -124,18 +127,29 @@ class UpdateHealth(View):
 
 
 class DeleteEntry(DeleteView):
+    '''View for the Delete Entry page. 
+
+    Allows the user to confirm and action deletion of the selected entry.'''
     model = HealthStats
     template_name = 'health_hub_delete.html'
     success_url = reverse_lazy('HealthHub:health_hub_history')
 
 
 class EditHealth(UpdateView):
+    '''View for the Edit Stats page. 
+
+    Allows the user to confirm and action editing of the selected entry.'''
+    
     model = HealthStats
     template_name = 'health_hub_edit.html'
     fields = ['weight', 'run_distance', 'run_time']
 
 
 def article_detail(request, item_id):
+    '''View for the Article Detail page. 
+
+    Displays the selected article from the Article model.'''
+
     article = Article.objects.get(id=item_id)
     context = {
             "title": article.title,

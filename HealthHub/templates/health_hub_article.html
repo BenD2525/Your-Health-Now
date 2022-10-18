@@ -4,12 +4,16 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row card">
+        <!-- Title -->
         <div class="col-sm-12 text-center py-4 my-4 card-body">
             <h3 class="card-title">{{ title }}</h3>
             <hr>
+            <!-- Image -->
             <img src=" {{ featured_image.url }}" width="100%" height="75%">
             <hr>
+            <!-- Content -->
             <p class="card-text">{{ content }}</p>
+            <!-- Navigation Buttons -->
             <a href="{% url 'HealthHub:home' %}" class="btn btn-primary">Back to Home</a>
             {% if user.is_authenticated %}
             <a href="{% url 'HealthHub:health_hub' %}" class="btn btn-secondary">My Health</a>

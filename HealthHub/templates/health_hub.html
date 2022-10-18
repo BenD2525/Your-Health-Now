@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<!-- Latest Health Stats -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 text-center">
@@ -17,16 +18,17 @@
         <p>Please see below for your latest stats:</p>
         <table class="table table-bordered">
             <tr>
-                <td>Weight (lbs): {{ weight }}</td>
-                <td>Run Distance (km): {{ run_distance }} km</td>
+                <td><strong>Weight (lbs):</strong> <br>{{ weight }}</td>
+                <td><strong>Run Distance (km):</strong> <br>{{ run_distance }} km</td>
             </tr>
             <tr>
-                <td>Run Time (HH:MM:SS): {{ run_time }}</td>
-                <td>Last Updated: {{ date }}</td>
+                <td><strong>Run Time (HH:MM:SS):</strong> <br>{{ run_time }}</td>
+                <td><strong>Last Updated:</strong> <br>{{ date }}</td>
             </tr>
         </table>
     </div>
     </div>
+    <!-- Navigation Buttons -->
     <div class="row justify-content-center d-grid gap-3">
         <a href="{% url 'HealthHub:health_hub_history' %}"><button class="btn btn-primary btn-lg">View my Health
                 History</button></a>

@@ -2,17 +2,12 @@
 {% load static %}
 
 {% block content %}
+<!-- Delete entry form -->
 <h3>Are you sure you want to delete this entry?</h3>
-<tr>
-    <td>{{ item.user }}</td>
-    <td>{{ item.weight }} </td>
-    <td>{{ item.date }}</td>
-    <td>{{ item.run_distance }}</td>
-    <td>{{ item.run_time }}</td>
     <form method="POST">
         {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>
     <a href="{% url 'HealthHub:health_hub_history' %}" class="btn btn-primary">Back</a></td>
-</tr>
+
 
 {% endblock content %}
