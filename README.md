@@ -81,8 +81,6 @@ The requirements listed above were then organised and structured into 3 areas, a
 #### User Stories
 User Stories were then created to guide the development process. These are listed below and were logged as Issues, sorted into Milestones and completed on my project board in Github.
 
-- As a user, I want to be able to edit and update an exercise planner for myself.
-- As a user, I want to be able to update entries on the exercise planner when I have done them.
 - As a user I want to be able to delete my stats.
 - As a user I want to be able to view my stats over time.
 - As a user I want to be able to see how my weight changes over time in graph format.
@@ -95,6 +93,8 @@ I decided to remove the below user stories from my development using the agile p
 - As a user, I want to be able to comment on articles.
 - As a user, I want to be able to delete my comments.
 - As an admin, I want to be able to delete comments.
+- As a user, I want to be able to edit and update an exercise planner for myself.
+- As a user, I want to be able to update entries on the exercise planner when I have done them.
 
 This decision was taken because I felt these features would not add much to the overall user experience. When faced with time limitations, I chose to implement the weight tracker over the commenting functionality because it was more conducive to the overall goal of the website.
 
@@ -225,7 +225,7 @@ The ability for the user to choose which stats to log and track. This would requ
 A workout planner held within the Health Hub which would allow the user to plan their workouts on a calendar, tick them off and register the stats from them. 
 
 ## Testing
-Details of all testing undertaken can be found ![here](TESTING.md).
+Details of all testing undertaken can be found [here](TESTING.md).
 
 ## Deployment
 

@@ -7,7 +7,7 @@ from .forms import StatUpdateForm
 
 
 def home(request):
-    '''View for the home page. 
+    '''View for the home page.
     Gathers and displays articles from Article model.'''
     serialized_articles = []
     articles = Article.objects.all()
@@ -17,7 +17,7 @@ def home(request):
             "topic": article.topic,
             "featured_image": article.featured_image,
             "id": article.id,
-        })     
+        })
     context = {
         "articles": serialized_articles
         }
@@ -25,7 +25,7 @@ def home(request):
 
 
 def health_hub(request):
-    '''View for the Health Hub page. 
+    '''View for the Health Hub page.
 
     Gathers and displays latest health stats from HealthStats model.'''
     user = request.user
@@ -68,10 +68,10 @@ def health_history(request):
         "stats": serialized_stats
         }
     return render(request, 'health_hub_history.html', context)
- 
+
 
 def health_hub_tracker(request):
-    '''View for the Weight Tracker page. 
+    '''View for the Weight Tracker page.
 
     Gathers and displays user's stats from HealthStats model
     and displays them using chart.js.'''
@@ -95,10 +95,10 @@ def health_hub_tracker(request):
 
 
 class UpdateHealth(View):
-    '''View for the Update Health page. 
+    '''View for the Update Health page.
 
     Uses StatUpdateForm to allow the user to update their stats.'''
-    
+
     def get(self, request, *args, **kwargs):
 
         stats = HealthStats
@@ -115,7 +115,6 @@ class UpdateHealth(View):
     
     def post(self, request, *args, **kwargs):
 
-        stats = HealthStats
         update_form = StatUpdateForm(data=request.POST)
 
         if update_form.is_valid():
@@ -158,4 +157,3 @@ def article_detail(request, item_id):
             "content": article.content,
         }   
     return render(request, 'health_hub_article.html', context)
-

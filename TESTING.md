@@ -69,73 +69,60 @@ This was tested on a laptop, PC, iPad, Iphone SE, Galaxy S8 and a Motorola G9.
 
 ### HTML
 
-![HTML validation]()
+![Home HTML validation](readme/testing/html_checker_home.PNG)
 
-No errors were found
+![Login HTML validation](readme/testing/html_checker_login.PNG)
+
+![Logout HTML validation](readme/testing/html_checker_logout.PNG)
+
+![Signup HTML validation](readme/testing/html_checker_signup.PNG)
+
+![Article HTML validation](readme/testing/html_checker_article.PNG)
+
+![Health Hub HTML validation](readme/testing/html_checker_health_hub.PNG)
+
+No errors were found, apart from an IO error found on the Health Hub pages. After looking up the error message, this is down to the HTML validator.
 
 ### CSS
 
-There were numerous errors caused by Bootstraps classes, but when pasting in my custom css, no errors or warnings were found were found.
+No errors or warnings were found for my custom CSS.
 
 ### JavaScript
 
-There is only 1 function in the script.js file, for closing messages after 3 seconds. I removed the alert variable as it wasn't necessary, and came up with a warning as the variable'bootstrap' wasn't defined. I retested the messages with this line removed and it still worked as expected.
+There are 2 scripts in my files, one located in base.html which is my function for setting the timeout of messages. The other is my chart.js script which was based on the example provided in the chart.js [documentation](https://www.chartjs.org/docs/latest/).
+
+When posting each script into the [javascript validator](https://jsvalidator.com/)- the only errors found were as a consequence of using django's template language.
 
 ### Python
 
-![Pep8online Testing]()
+![Pep8online Testing](readme/testing/python_checker.PNG)
 
-[Pep8online.com](http://pep8online.com) was used to test all python files. All efforts were made to make all code pep8 compliant, with the exception of the settings.py file, which Django state in their docs is okay to ignore should it make the code ugglier or harder to read, which in these cases it does.
+[Python Checker](https://www.pythonchecker.com) was used to test all python files. All efforts were made to make all code pep8 compliant, with the exception of the settings.py file, which Django state in their docs is okay to ignore should it make the code uglier or harder to read.
 
 ## User Stories
 
-### As a **New Student** I can...
+### As a user, I want to be able to learn about health and fitness.
+- On the home page the user can read articles about health and fitness. Whenever the admin adds a new article, this will automatically be updated on the home page.
 
-| Checked | ...**find a teacher online** so that **I can learn more about that person.**                                                                        |
-| :-----: | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| &check; | With an SEO score of 100, I have made it as likely as possible to be found on search engine, and the home page is clear about what the site offers. |
+### As a user I want to be able to sign up to access the website’s features.
+- There is signup functionality clearly shown from the navbar, and the user is able to create a user account using their email to confirm.
 
-| Checked | ...**see who I am taking lessons with** so that **I can feel comfortable meeting a new teacher.** |
-| :-----: | :------------------------------------------------------------------------------------------------ |
-| &check; | Video of myself playing drums on the home page, and a detailed 'about me' section                 |
+### As a user I want to be able to Log in to access my details privately.
+- There is login functionality clearly shown from the navbar, and will allow a previously signed up user to log in as themselves. This provides access to the health hub section of the website, where the user can track their health stats.
 
-| Checked | ... **see whether the teacher teaches children** so that **I know I am safe to leave my child during the lessons.** |
-| :-----: | :------------------------------------------------------------------------------------------------------------------ |
-| &check; | In the FAQs section this question has been covered direclty.                                                        |
+### As a user I want to be able to logout to protect my data.
+- There is logout functionality clearly shown from the navbar when the user is logged in. If the user has not logged in, this will not show as an option.
 
-| Checked | ...**find out if I am too old to start taking lessons** so that **I can avoid wasting my time** |
-| :-----: | :---------------------------------------------------------------------------------------------- |
-| &check; | Also covered in FAQs                                                                            |
+### As a user I want to be able to view my stats.
+- Once the user has logged in, they can access the health hub section using 'My Health' from the navbar. From here, they are shown their most recent stats and have the ability to view all of their stats within a table.
 
-| Checked | ...**book exact time slots** so that **I can plan the lessons around my life.** |
-| :-----: | :------------------------------------------------------------------------------ |
-| &check; | Bookings page with Calendly built in to book 60 minute slots.                   |
+### As a user I want to be able to edit my stats.
+- When viewing their stats history in table format, the user is able to click the 'edit' button next to the stat they wish to edit. They are then presented with a form, in which they can change any of the stats that they wish. Once they confirm, the entry will be edited and they will be redirected.
 
-| Checked | ...**Get in touch before booking a lesson** so that **I can ask him any questions that aren't on the site** |
-| :-----: | :---------------------------------------------------------------------------------------------------------- |
-| &check; | Email address listed in the footer, and FAQs section                                                        |
+### As a user I want to be able to delete my stats.
+- When viewing their stats history in table format, the user is able to click the 'delete' button next to the stat they wish to delete. They are then taken to another screen asking the user to confirm that they are happy to delete this entry. Once they confirm, the entry will be deleted and they will be redirected.
 
-| Checked | ...**get stuck in and play along at the same time as Tom** to that **I don't have to stop playing for him to demonstrate something.** |
-| :-----: | :------------------------------------------------------------------------------------------------------------------------------------ |
-| &check; | Answered in FAQs, and imagery throughout the site.                                                                                    |
-
-| Checked | ...**see reviews from real people** to that **I can find out if Tom is a good teacher for me.** |
-| :-----: | :---------------------------------------------------------------------------------------------- |
-| &check; | Reviews page                                                                                    |
-
-## As a **Current Student** I can...
-
-| Checked | ...**Login to my account** so that **I don't have to enter my details everytime I use the site**      |
-| :-----: | :---------------------------------------------------------------------------------------------------- |
-| &check; | If the user has cookies enabled, they can stay logged in to their profile when returning to the site. |
-
-| Checked | ...**submit a review on Tom's site** so that **I can share my experience** |
-| :-----: | :------------------------------------------------------------------------- |
-| &check; | Reviews page                                                               |
-
-| Checked | ...**browse the available jobs (brief description only)** so that **I can see if I wish to register with the site or not** |
-| :-----: | :------------------------------------------------------------------------------------------------------------------------- |
-| &check; | Can see the preview cards for available jobs                                                                               |
-| &check; | Can see I need to sign up/log in to see more info                                                                          |
+### As a user I want to be able to see how my weight changes over time in graph format.
+- The user can access and see their weight stats on a tracker using the weight tracker page. This allows the user to track their weight over time, with the weight being shown in the form of a line graph. Along the bottom, the dates of each weight entry are registered.
 
 [Return to README.md](README.md)
