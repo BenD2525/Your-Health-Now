@@ -18,10 +18,10 @@
     <div class="col-md-7">
         <h2 class="featurette-heading">{{ article.title }}</h2>
         <p class="lead">{{ article.topic }}</p>
-        <a href="article/{{ article.id }}" class="btn btn-primary my-4">Read More</a>
+        <a href="article/{{ article.id }}" class="btn btn-primary my-4">Learn More</a>
     </div>
     <div class="col-md-5">
-        <img class="card-img-top" src=" {{ article.featured_image.url }}">
+        <img class="card-img-top" src=" {{ article.featured_image.url }}" alt="Article Image">
     </div>
 </div>
 {% endfor %}

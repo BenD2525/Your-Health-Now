@@ -225,7 +225,7 @@ The ability for the user to choose which stats to log and track. This would requ
 A workout planner held within the Health Hub which would allow the user to plan their workouts on a calendar, tick them off and register the stats from them. 
 
 ## Testing
-Details of all testing undertaken can be found ![here]().
+Details of all testing undertaken can be found ![here](TESTING.md).
 
 ## Deployment
 
