@@ -15,32 +15,61 @@
 - [User Stories](#user-stories)
 
 ## Bugs and Fixes During the Development Process
+- Messages
+    - Issue - Messages were not being removed automatically.
+    - Cause - The messages were set to display, but not set to close without user intervention.
+    - Solution - I added a timeout script to the base file which would close the message after 3 seconds.
+- Images
+    - Issue - Images weren't displaying.
+    - Cause - The links for the images were not correct, and so were unable to display anything from Cloudinary.
+    - Solution - I changed the image links to cloudinary urls.
+- Weight Tracker
+    - Issue - Data wasn't pulling through to the chart on the weight tracker.
+    - Cause - I hadn't converted the weight stats to an integer or the dates to strings.
+    - Solution - I added an integer specifier to my health tracker view for my serialized weight list and a string specifier for my serialized date list.
+- Delete Entry
+    - Issue - Original deletion functionality wasn't working when I had modals set up to pop up when the user clicked the delete button. Whichever delete button was used, the same data was deleted.
+    - Cause - The modal IDs were conflicting with the entry IDs, so it was deleting the same entry each time.
+    - Solution - I changed approach from using modals to delete to using a DeleteView from django's generic views.
+- SEO
+    - Issue - SEO score was quite low.
+    - Cause - I had forgotten the description, author and keywords information for the meta tag and SEO's weren't picking up 'read more' on my article links.
+    - Solution - I added this information in to the meta tag and amended the links to read 'learn more'.
+- Emails
+    - Issue - Emails were not sending outside of the development environment.
+    - Cause - I had not configured my config vars on Heroku to include my EMAIL_HOST_USER and EMAIL_HOST_PASSWORD variables.
+    - Solution - I added these into Heroku and the emails began sending and the error message stopped showing.
+- Health Hub
+    - Issue - The data in the table was showing the most recent data by date only. If the user had added multiple stats on the same day, it would only display the first set of stats on that day. It should have shown the most recent set of stats in time.
+    - Cause - The date field was set up as a datefield in the healthstats model.
+    - Solution - The date field was changed to a datetime field instead, this fixed the issue.
 
-- Issue - SEO score was quite low.
-- Cause - I had forgotten the description, author and keywords information for the meta tag and SEO's weren't picking up 'read more' on my article links.
-- Solution - I added this information in to the meta tag and amended the links to read 'learn more'.
-
-## Wave Aim Accessibility Checker
+## Accessibility
 
 ## Lighthouse
 
 ### Desktop
 
-![Lighthouse Desktop Score](readme-content/testing/testing-lighthouse-desktop.png)
+![Lighthouse Desktop Score](readme/testing/lighthouse_desktop.PNG)
 
-I spent some time altering how the home page video renders, as this was causing a lot of extra load time. The background images on the home page was also taking a while due to its size. I added some media queries to help with this by loading a size similar to the viewport, which drastically reduces the file size
+When I first tested, my SEO score was quite low. I found that this was because I had forgotten the description, author and keywords information for the meta tag. To fix this, I added this information in to the meta tag and as a result, my score improved to 90%. The only issue currently still highlighted is the wording used for my links on the home page. They are flagged as not descriptive of the links, however I feel amending them to 'click here' as suggested, would change the feel of the site and be less descriptive so I have decided to keep them as they are.
 
 ### Mobile
 
-![Lighthouse Mobile Score](readme-content/testing/testing-lighthouse-mobile.png)
+![Lighthouse Mobile Score](readme/testing/lighthouse_mobile.PNG)
 
-The scores mainly fluctuated between 80-95, mainly around 87/88, however the recurring issue was the unused CSS and JS caused by using the Bootstrap CDN, meaining the initial render was slower than it could have been. I'll consider looking at other alternatives like Tailwind for future projects should I use another framework, as it optimizes the file size based on used CSS.
+The only detractor on the mobile view is the same as on the desktop view- the wording for the links, which have not been amended as explained above.
+
+## Browser Compatability
+
+Google Chrome, Microsoft Edge, Mozilla Firefox and Safari all display content and images correctly and all links work and open in new window.
+This was tested on a laptop, PC, iPad, Iphone SE, Galaxy S8 and a Motorola G9.
 
 ## Validators
 
 ### HTML
 
-![HTML validation](readme-content/testing/testing-html.png)
+![HTML validation]()
 
 No errors were found
 
