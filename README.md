@@ -2,7 +2,7 @@
 
 Your Health Now is a website aimed at users who wish to learn more about health and fitness, and who would like to be able to log their weight and run stats. I have also included the ability to track the user's weight using a chart to visualise the data. The user is able to sign up, log in and log out, and only the user's own stats will be available to them. The user is able to update their stats with the latest entry, edit any of their existing stats and delete any they wish to delete. The health history table will be updated as such with any additions or changes the user has made, making this a handy site to log and track your health stats.
 
-![Multi Screen Image]()
+![Multi Screen Image](readme/images/responsive.PNG)
 
 ## [Live Site](https://your-health-now.herokuapp.com/)
 
@@ -100,11 +100,15 @@ This decision was taken because I felt these features would not add much to the 
 
 ### Skeleton Plane
 A wireframe for the website was produced using a desktop version of Balsamiq in order to provide a clear image of what the website should look like.
-[Link to wireframes]()
+![Home page](readme/images/Wireframe_Home.PNG)
+![Health Hub](readme/images/Wireframe_Health_Hub.PNG)
+![Login](readme/images/Wireframe_Login.PNG)
+![Signup](readme/images/Wireframe_Signup.PNG)
+![Tracker](readme/images/Wireframe_Weight_Tracker.PNG)
 
 #### Site Flow
 Using Balsamiq, I then created a flow map showing what I would visualise as the user's journey through the website.
-![Link to Site map]()
+![Link to Site map](readme/images/Site_Flow.PNG)
 
 ### Surface Plane
 
@@ -121,73 +125,93 @@ The below features are part of my base template, and as such are included on all
 
 #### **Title**
 The title of the website, I used the bootstrap display class to clearly display this as the website's title, ensuring it is prominent on each page.
-![Title]()
+
+![Title](readme/images/title.PNG)
 
 #### **Navbar (Logged Out)**
 When accessing the site on the desktop, the navbar is located next to the title, following the blue and white scheme.
-![Navbar Desktop]()
+
+![Navbar Desktop](readme/images/navbar.PNG)
+
 On a mobile view, this is changed to a burger menu.
-![Navbar Mobile]()
+
+![Navbar Mobile](readme/images/navbar_mobile.PNG)
 
 #### **Navbar (Logged In)**
 When logged in as a user on the desktop, the navbar is located next to the title, following the blue and white scheme.
 When logged in, the login function changes to logout, and the sign up link is removed and replaced with 'My Health' which allows access to the health hub.
-![Navbar Desktop Logged In]()
+
+![Navbar Desktop Logged In](readme/images/navbar_logged_in.PNG)
+
 On a mobile view, this is changed to a burger menu.
-![Navbar Mobile Logged In]()
+
+![Navbar Mobile Logged In](readme/images/navbar_mobile_logged_in.PNG)
 
 #### **Footer**
 The footer is located at the bottom of the page. It is fixed there so is always visible to the user wherever they are on the page. It features my name, alongside a Github icon which allows the user to navigate to my Github to view other projects. On the opposite side of the footer, I have included a link to the top of the page the user is on, which allows for easy navigation on the longer pages on mobile view.
-![Footer]()
+
+![Footer](readme/images/footer.PNG)
 
 ### **Home Page**
 The home page is the landing page for the website, and serves to tell the user what the website is about. It includes the main section, which explains the purpose of the site, underneath a large image of a person running, which introduces the theme of health. Underneath this, there are the articles which have been loaded into the Articles model. Whenever a new article is added, it will automatically display the title, featured image and topic which is taken from the Articles model. The admin user has the ability to add a new article.
 
 #### **Main Section**
 The main section consists of a large welcome image and the purpose of the website underneath it.
-![Main Section]()
+
+![Main Section](readme/images/home_main_section.PNG)
 
 #### **Article Section**
 The article section shows the user an introduction to each article that is available to read, alongside a link to the article and the article's featured image.
-![Article Section]()
+
+![Article Section](readme/images/home_article_feature.PNG)
 
 ### **Login Page**
 The login page features a login form using AllAuth and formatted with the crispy forms package.
-![Login Form]()
+
+![Login Form](readme/images/login_form.PNG)
+
 Once the user logs in, they are redirected to the home page and a successful message shows.
 
 ### **Signup Page**
 The Signup page features a signup form using AllAuth and formatted with the crispy forms package.
-![Signup Form]()
+
+![Signup Form](readme/images/signup_form.PNG)
 
 ### **Article Page**
 The Article Detail page allows the user to learn more about health and fitness. Once the user clicks 'read more' next to one of the articles on the homepage, they are directed here and are able to read the entire article, and go back to the home page.
-![Article Detail]()
+
+![Article Detail](readme/images/article_detail.PNG)
 
 ### **Health Hub**
 The Health Hub page is specific to the logged in user, and only available once the user is logged in. It includes the details of their latest stats entry displayed in table format. This data is brought through from the health stats model, and if there are no entries, the table will read blank. Below the table are buttons to take the user to the other parts of the Health Hub, or back to the home page. 
-![Health Hub]()
+
+![Health Hub](readme/images/health_hub.PNG)
 
 #### **Update Stats**
 The update stats form allows the user to add a new instance into the Health Stats model. The User and Date instances are automatically collected and stored, and the user is asked to provide the other stats. It requires all fields to be filled out, and in the formats described on the field labels. Once the form is submitted, the user is redirected to the health hub.
-![Update Stats]()
+
+![Update Stats](readme/images/update_stats.PNG)
 
 #### **Health Hub History**
 The Health History page shows the user all of their logged data, displayed in table format with the most recent one at the top. On a mobile view, I added a horizontal scroll function to the table, in order to allow the user to view all of their data easily. The table has buttons to allows the user to edit and delete each entry in the final two columns. These are colour coded to emphasise the functionality- red for delete and blue for edit.
 If the user has logged stats, the button for the weight track will also show to enable the user to track their weight.
-![Health Hub History]()
+
+![Health Hub History](readme/images/health_history.PNG)
 
 #### **Edit Stats**
 If the user clicks the edit button on an entry on the health history table, they are presented with a form, with the current values of that entry already filled out. The user is then able to edit the details they wish and and update the entry. Once the form is submitted, the user is redirected to the health history page.
-![Edit Stats]()
+
+![Edit Stats](readme/images/edit_form.PNG)
 
 #### **Delete Stats**
 If the user clicks the delete button on an entry on the health history table, they are presented with a warning message asking the user to confirm they are happy to delete this entry. The user can confirm, or go back to the previous page. If the user confirms, the entry is deleted and they are redirected to the health history page (minus the deleted entry).
-![Delete Stats]()
+
+![Delete Stats](readme/images/delete_entry.PNG)
 
 #### **Health Hub Tracker**
 The Health Hub Tracker page allows the user to track their weight stats over time in the form of a line graph. The Y axis displays the user's weight stats and the X axis displays the dates that these stats were registered. The date information is automatically gathered whenever the user submits a new entry using the Update Stats form. This provides some basic data visualisation for the user, and is an area which could be further developed to enable a wider variety of tracking options.
-![Health Hub Tracker]()
+
+![Health Hub Tracker](readme/images/health_tracker.PNG)
 
 ## **Future Development**
 
@@ -245,3 +269,27 @@ Steps to deploy:
 - CI London Community for general support when traversing the Django learning curve!
 
 ## Credits
+- [Balsamiq](https://balsamiq.com/) for creating the wireframes
+- VS Code for the text editor
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+  - Version 5.1.3, CSS framework for building a responsive front end.
+- [Cloudinary](https://cloudinary.com/)
+  - Used to store static files and media.
+- [GitHub](https://github.com/)
+  - Used for version control throughout the build process
+  - GitHub Projects used to organise user stories and tasks.
+  - Milestones were used to group user stories into sections.
+- [Google Fonts](https://fonts.google.com/)
+- Cripsy Forms for formatting all of my forms.
+- General References
+  - Stack Overflow
+  - GeeksForGeeks
+  - Django docs
+  - Bootstrap Docs
+  - W3Schools
+  - Chart.js docs
+- [Unsplash](https://unsplash.com/) for providing the images, specifically:
+  - Brian Erickson for the home page image
+  - Jenny Hill for the running article image
+  - Jose Vazquez for the yoga article image
+  - Sushil Ghimire for the Weightlifting article image
