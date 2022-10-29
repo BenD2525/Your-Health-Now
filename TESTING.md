@@ -125,4 +125,25 @@ When posting each script into the [javascript validator](https://jsvalidator.com
 ### As a user I want to be able to see how my weight changes over time in graph format.
 - The user can access and see their weight stats on a tracker using the weight tracker page. This allows the user to track their weight over time, with the weight being shown in the form of a line graph. Along the bottom, the dates of each weight entry are registered.
 
+## Manual Testing
+
+### Forms
+- Signup form
+    - When trying to submit a blank form, user is provided with an error message asking them to fill out the form.
+    - When trying to use something other than an email address in the email field, the user is provided with an error message advising them to provide an email in the correct format.
+    - When trying to use an existing username, the user is provided with an error message asking them to use a different username.
+    - When trying to leave the username blank, the user is provided with an error message asking them to provide a username.
+    - When trying to leave the password blank, the user is provided with an error message asking them to provide a password.
+    - When trying to leave the confirm password blank, the user is provided with an error message asking them to confirm their password.
+    - When trying to use a different password in the confirm password field, the user is provided with an error message asking them to use the same password as the password field.
+    - When trying to use a short password, the user is provided with an error message asking them to create a longer password.
+- Login form
+    - When trying to submit a blank form, user is provided with an error message asking them to fill out the form.
+    - When trying to submit incorrect details on the form, the user is provided with an error message asking them to provide correct details.
+- Update form
+    - When trying to submit a blank form, user is provided with an error message asking them to fill out the form.
+
+### Links
+All links work correctly and the Github link opens in a new tab, to avoid the user leaving the website.
+
 [Return to README.md](README.md)

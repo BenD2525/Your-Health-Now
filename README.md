@@ -16,6 +16,7 @@ Your Health Now is a website aimed at users who wish to learn more about health 
     - [User Stories](#user-stories)
   - [Skeleton Plane](#skeleton-plane)
     - [Site Flow](#site-flow)
+    - [Database Schema](#database-schema)
   - [Surface Plane](#surface-plane)
     - [Colour Scheme](#colour-scheme)
 - [Agile Development Process](#agile-development-process)
@@ -109,6 +110,20 @@ A wireframe for the website was produced using a desktop version of Balsamiq in 
 #### Site Flow
 Using Balsamiq, I then created a flow map showing what I would visualise as the user's journey through the website.
 ![Link to Site map](readme/images/Site_Flow.PNG)
+
+#### Database Schema
+I created a visual representation of my databases in [Lucid Chart](https://www.lucidchart.com/).
+![Database Schema](readme/images/database_schema.png)
+- Health Stats
+  - The Health Stats model is designed for the user to be able to store their weight, run distance and run time using the update stats form.
+  - The user and date fields are stored on each instance automatically, the date being registered as the current date/time, and the user being registered as the current logged in user. I decided to set the date field to 'auto_now_add = True' so that the initial date would be registered, however it would not be overwritten once edited, as I felt it was important to keep the original date of registering the data.
+  - The weight and run distance fields are both decimal fields, with a max digits limitation of 5 and 2 decimal places.
+  - The run time field is a duration field. This was originally created as a time field, however this did not work as expected. If a user input the a time of 1:00, this would register as a time of 1am. I then changed the field to a duration field and this fixed the issue and worked as expected.
+- Article
+  - The article model is designed to be able to store articles for the website, and display them in a list on the homepage, with the full content of each article available in the subsequent article pages. This model can only be added to via the admin panel using the admin login, so that the site admin can control the information available to all users.
+  - The title and topic fields are set as character fields because they should only include text.
+  - The featured image field is set as a cloudinary field because I am using Cloudinary to host my images.
+  - The content field is set as a text field because this is where the main content of the article is held.
 
 ### Surface Plane
 
@@ -293,3 +308,4 @@ Steps to deploy:
   - Jenny Hill for the running article image
   - Jose Vazquez for the yoga article image
   - Sushil Ghimire for the Weightlifting article image
+- [Lucid Chart](https://www.lucidchart.com/)- used for the creation of the database schema table.
