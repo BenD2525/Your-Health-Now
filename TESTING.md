@@ -125,6 +125,9 @@ When posting each script into the [javascript validator](https://jsvalidator.com
 ### As a user I want to be able to see how my weight changes over time in graph format.
 - The user can access and see their weight stats on a tracker using the weight tracker page. This allows the user to track their weight over time, with the weight being shown in the form of a line graph. Along the bottom, the dates of each weight entry are registered.
 
+## Automated Testing
+I wrote tests check the URL resolution for each of my URLs. These all pass, ensuring that my URLs are working correctly. These tests can be found in the tests.py file.
+
 ## Manual Testing
 
 ### Forms
