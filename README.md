@@ -63,6 +63,28 @@ When creating a functional, informative website, a developer must consider all p
 	- The User must be able to view, add to, edit and delete their stats.
 	- The User must be able to log out.
 
+| Opportunity                                            | Importance | Viability/Feasibility |
+| ------------------------------------------------------ | ---------- | --------------------- |
+| Home page                                              | 5          | 5                     |
+| Login facility                                         | 5          | 5                     |
+| Signup facility                                        | 5          | 5                     |
+| Logout Facility                                        | 5          | 5                     |
+| Articles about health and fitness                      | 4          | 5                     |
+| Health Hub for the user to store their stats           | 5          | 4                     |
+| Table which displays the user's stats history          | 4          | 4                     |
+| Ability to edit and delete any stats                   | 4          | 4                     |
+| Ability to add to their stats                          | 5          | 4                     |
+| Table detailing the user's most recent stats           | 4          | 4                     |
+| Tracker functionality for charting weight stats        | 4          | 3                     |
+| Tracker functionality for charting run stats           | 3          | 3                     |
+| Ability for the user to amend chart (line/pie etc.)    | 3          | 3                     |
+| Planner which allows user to track their workouts      | 2          | 2                     |
+| BMI Calculator and tracker                             | 2          | 4                     |
+| ----------------------------------------               | ----       | ----                  |
+| Totals: 15                                             | 60         | 60                    |
+
+The viability and importance scores match, so I should be able to implement all of the above features. These scores were based on my skill level at the beginning of the project. Some of the higher importance features took longer than expected to implement, which then led to the less important features being cut from the development process. As a result, the missing features have now been logged as options for further development to the project.
+
 ### Scope Plane
 Assessing the scope of a website is based on the information gathered from forumlating a strategy. Using the target audience and the established website goals, the website requirements were set out.
 - Content Requirements:
