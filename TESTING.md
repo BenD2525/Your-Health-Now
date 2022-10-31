@@ -126,7 +126,7 @@ When posting each script into the [javascript validator](https://jsvalidator.com
 - The user can access and see their weight stats on a tracker using the weight tracker page. This allows the user to track their weight over time, with the weight being shown in the form of a line graph. Along the bottom, the dates of each weight entry are registered.
 
 ## Automated Testing
-I wrote tests check the URL resolution for each of my URLs. These all pass, ensuring that my URLs are working correctly. These tests can be found in the tests.py file.
+I wrote tests check the URL resolution for each of my URLs. These all pass, ensuring that my URLs are working correctly. These tests can be found in the [tests.py file](HealthHub/tests.py).
 
 ## Manual Testing
 
